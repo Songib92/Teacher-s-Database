@@ -18,22 +18,22 @@
 			<div class="card-body">
 				<h2>Sign Up</h2>
 
-				<form action="" method="POST" >
+				<form action="" method="POST" enctype="multipart/form-data" >
 					<div class="form-group">
 						<label for="">Full Name</label>
-						<input class="form-control" type="text">
+						<input name="fname" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input class="form-control" type="text">
+						<input name="cell" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Deparment/Subject</label>
-						<select class="form-control" id="">
+						<select name="dep/sub" class="form-control" id="">
 							<option value="">--Select--</option>
 							<option value="">Accounting</option>
 							<option value="">Bangla</option>
@@ -50,7 +50,7 @@
 					<div class="form-group">
 						<label for="">Date of Join</label>
 						<br>
-						<input type="date">
+						<input name="date" type="date">
 					</div>
 					<div class="form-group">
 						<label for="">MPO Status</label>
@@ -60,11 +60,11 @@
 					</div>
 					<div class="form-group">
 						<label for="">Address</label>
-						<input class="form-control" type="text">
+						<input name="address" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Blood Group</label>
-						<select class="form-control" id="">
+						<select name="bgroup" class="form-control" id="">
 							<option value="">--Select--</option>
 							<option value="">A Positive (A+)</option>
 							<option value="">A Negative (A-)</option>
@@ -78,10 +78,10 @@
 					</div>
 					<div class="form-group">
 						<label for="">Photo</label>
-						<input class="form-control" type="file">
+						<input name="photo" class="form-control" type="file">
 					</div>
 					<div class="form-group">
-						<input type="checkbox" id="status"> <label for="">Published</label>
+						<input name="status" type="checkbox" checked id="status"> <label for="">Published</label>
 					</div>
 
 					<div class="form-group">
