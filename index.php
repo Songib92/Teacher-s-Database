@@ -81,12 +81,11 @@
 						<input class="form-control" type="file">
 					</div>
 					<div class="form-group">
-						<label for="">Status</label>
-						<input class="form-control" type="text">
+						<input type="checkbox" id="status"> <label for="">Published</label>
 					</div>
 
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Sign Up">
+						<input class="btn btn-primary" type="submit" value="Add Information">
 					</div>
 				</form>
 			</div>
