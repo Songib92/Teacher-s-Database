@@ -54,6 +54,7 @@
 						$sql = "SELECT * FROM teachers_information";
 						$data = $connection -> query($sql);
 
+						$i = 1;
 						while ( $final_data = $data -> fetch_assoc() ) :
 						
 
@@ -61,7 +62,7 @@
 
 						 ?>
 						<tr>
-							<td>1</td>
+							<td><?php echo $i; $i++; ?></td>
 							<td><?php echo $final_data['fname']; ?></td>
 							<td><?php echo $final_data['email']; ?></td>
 							<td><?php echo $final_data['cell']; ?></td>

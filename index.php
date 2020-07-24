@@ -43,7 +43,7 @@
 			}
 
 			//File Upload
-			$photo 	=$_FILES['photo'];
+			fileUpload($_FILES['photo']);
 
 			/**
 			 * Form Validation Check
