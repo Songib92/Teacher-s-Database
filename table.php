@@ -71,7 +71,7 @@
 							<td><?php echo $final_data['mpo']; ?></td>
 							<td><?php echo $final_data['address']; ?></td>
 							<td><?php echo $final_data['bgroup']; ?></td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td><img src="teacher photo/<?php echo $final_data['teacher photo']; ?>" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>

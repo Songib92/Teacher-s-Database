@@ -42,9 +42,7 @@
 				$mpo	= $_POST['mpo'];
 			}
 
-			//File Upload
-			fileUpload($_FILES['photo']);
-
+			
 			/**
 			 * Form Validation Check
 			 */
@@ -55,16 +53,24 @@
 				$message = "<p class='alert alert-warning'> আপনার আপনার ইমেইল এড্রেসটি সঠিক নয় !! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}else{
 
-				$sql = "INSERT INTO teachers_information (fname, email, cell, dep, jdate, mpo, address, bgroup, status) VALUES ('$fname','$email','$cell','$dep','$jdate','$mpo','$address','$bgroup','$status')";
+				//File Upload
+				$f_data = fileUpload($_FILES['photo'], 'teacher photo/', ['jpg', 'png', 'jpeg'], 1024);
 
-				$connection	-> query($sql);
+				$file_name = $f_data['file_name'];
+				$message = $f_data['message'];
 
-				$message = "<p class='alert alert-success'> আপনার তথ্য পূরণ সঠিক হয়েছে !! <button class='close' data-dismiss='alert'>&times;</button></p>";
+				if (!empty($f_message)) {
+					$message = $f_message;
+				}else{
+					$sql = "INSERT INTO teachers_information (fname, email, cell, dep, jdate, mpo, address, bgroup, photo, status) VALUES ('$fname','$email','$cell','$dep','$jdate','$mpo','$address','$bgroup','photo', '$status')";
+
+					$connection	-> query($sql);
+
+					$message = "<p class='alert alert-success'> আপনার তথ্য পূরণ সঠিক হয়েছে !! <button class='close' data-dismiss='alert'>&times;</button></p>";
+				}
+	
 
 			}
-
-
-
 
 
 		}
