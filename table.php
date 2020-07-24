@@ -1,3 +1,10 @@
+<?php 
+
+	require_once "app/database.php";
+	require_once "app/function.php";
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +17,7 @@
 </head>
 <body>
 	
-	
+		
 
 	<div class="wrap-table">
 	<a class="btn btn-sm btn-primary" href="index.php">Add Data</a>
@@ -19,77 +26,59 @@
 				<h2>All Data</h2>
 				<table class="table table-striped">
 					<thead>
+
 						<tr>
 							<th>#</th>
-							<th>Name</th>
+							<th>Full Name</th>
 							<th>Email</th>
 							<th>Cell</th>
+							<th>Depertment</th>
+							<th>Join Date</th>
+							<th>MPO Status</th>
+							<th>Address</th>
+							<th>Blood Group</th>
 							<th>Photo</th>
 							<th>Action</th>
 						</tr>
+
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
+
+
+
+						<?php 
+						/**
+						 * Teacher's Database Connection Setup Without Photo
+						 */
+
+						$sql = "SELECT * FROM teachers_information";
+						$data = $connection -> query($sql);
+
+						while ( $final_data = $data -> fetch_assoc() ) :
 						
+
+
+
+						 ?>
+						<tr>
+							<td>1</td>
+							<td><?php echo $final_data['fname']; ?></td>
+							<td><?php echo $final_data['email']; ?></td>
+							<td><?php echo $final_data['cell']; ?></td>
+							<td><?php echo $final_data['dep']; ?></td>
+							<td><?php echo $final_data['jdate']; ?></td>
+							<td><?php echo $final_data['mpo']; ?></td>
+							<td><?php echo $final_data['address']; ?></td>
+							<td><?php echo $final_data['bgroup']; ?></td>
+							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td>
+								<a class="btn btn-sm btn-info" href="#">View</a>
+								<a class="btn btn-sm btn-warning" href="#">Edit</a>
+								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+							</td>
+						</tr>
+						<?php endwhile; ?>
+												
 
 					</tbody>
 				</table>

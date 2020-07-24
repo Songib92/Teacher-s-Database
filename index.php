@@ -1,3 +1,10 @@
+<?php 
+
+	require_once "app/database.php";
+	require_once "app/function.php";
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +32,10 @@
 			$email		= $_POST['email'];
 			$cell		= $_POST['cell'];
 			$dep		= $_POST['dep'];
-			$date		= $_POST['date'];			
+			$jdate		= $_POST['jdate'];			
 			$address	= $_POST['address'];
 			$bgroup		= $_POST['bgroup'];			
-			$Status		= $_POST['status'];
+			$status		= $_POST['status'];
 
 			//Radio Value Fixing
 			if (isset($_POST['mpo'])) {
@@ -36,19 +43,27 @@
 			}
 
 			//File Upload
-			$photo 		=$_FILES['photo'];
+			$photo 	=$_FILES['photo'];
 
 			/**
 			 * Form Validation Check
 			 */
-			if ( empty($fname) || empty($email) || empty($cell) || empty($dep) || empty($date) || empty($mpo) || empty($address) || empty($bgroup) || empty($status) ) {
+			if ( empty($fname) || empty($email) || empty($cell) || empty($dep) || empty($jdate) || empty($mpo) || empty($address) || empty($bgroup) || empty($status) ) {
 
 				$message = "<p class='alert alert-danger'> আপনার সবগুলো তথ্য দিয়ে ঘরগুলো পূরণ করুন !! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$message = "<p class='alert alert-warning'> আপনার আপনার ইমেইল এড্রেসটি সঠিক নয় !! <button class='close' data-dismiss='alert'>&times;</button></p>";
-			}else {
+			}else{
 
-				
+				$sql = "INSERT INTO teachers_information (fname, email, cell, dep, jdate, mpo, address, bgroup, status) VALUES ('$fname','$email','$cell','$dep','$jdate','$mpo','$address','$bgroup','$status')";
+
+				$connection	-> query($sql);
+
+				$message = "<p class='alert alert-success'> আপনার তথ্য পূরণ সঠিক হয়েছে !! <button class='close' data-dismiss='alert'>&times;</button></p>";
+
+			}
+
+
 
 
 
@@ -102,7 +117,7 @@
 					<div class="form-group">
 						<label for="">Date of Join</label>
 						<br>
-						<input name="date" type="date">
+						<input name="jdate" type="date">
 					</div>
 					<div class="form-group">
 						<label for="">MPO Status</label>

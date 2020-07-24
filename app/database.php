@@ -9,9 +9,7 @@
 	$pass	= '';
 	$database = 'awd416';
 
-
-
-	$connection = new mysqli( $host, $user, $pass, $dababase );
+	$connection = new mysqli($host, $user, $pass, $database);
 
 
 
